@@ -42,9 +42,23 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
 
     AutocompleteRestaurantAdapter adapter;
     AutoCompleteTextView autoComplete;
+    private Timer timer;
+    private TimerTask timerTask = new TimerTask() {
 
+        @Override
+        public void run() {
+            if(isOnline()){
+                stopCheckingConnexion();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadActivity();
+                    }
+                });
+            }
 
-
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,10 +93,6 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
 
 
     }
-
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -129,25 +139,6 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
     public void toggleSlidingMenu() {
         sMenuLeft.toggle();
     }
-
-    private Timer timer;
-
-    private TimerTask timerTask = new TimerTask() {
-
-        @Override
-        public void run() {
-            if(isOnline()){
-                stopCheckingConnexion();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadActivity();
-                    }
-                });
-            }
-
-        }
-    };
 
     public void startCheckingConnexion() {
         if(timer != null) {

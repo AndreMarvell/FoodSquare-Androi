@@ -1,1 +1,1 @@
-include ':app', ':slidingmenu', ':actionbarsherlock', ':swipelistview'
+include ':app', ':slidingmenu', ':actionbarsherlock'
