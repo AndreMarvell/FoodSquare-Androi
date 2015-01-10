@@ -19,7 +19,7 @@ Voici une liste des principales fonctionnalités
 
 ## License
 
-    Copyright 2014-2015 André Marvell Marvell IKOUNGA
+    Copyright 2014-2015 André Marvell IKOUNGA
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
