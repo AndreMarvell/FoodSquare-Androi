@@ -135,7 +135,7 @@ public class Connexion extends AsyncTask<String, Void, User> {
                         new InputStreamReader(inputStream));
                 String line = reader.readLine();
 
-                //boolean error = (new JSONObject(line)).getBoolean("error");
+                Log.d(TAG,line);
 
                 JSONObject jObj = new JSONObject(line);
 
@@ -143,6 +143,7 @@ public class Connexion extends AsyncTask<String, Void, User> {
                 user.setNbComment(jObj.getInt("comments"));
                 user.setNbNotes(jObj.getInt("rates"));
                 user.setLastConnection(jObj.getString("last_connection"));
+                user.setExpireAt(jObj.getLong("expiredAt"));
 
 
 

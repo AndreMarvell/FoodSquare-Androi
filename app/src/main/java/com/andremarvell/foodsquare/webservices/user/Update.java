@@ -127,6 +127,7 @@ public class Update extends AsyncTask<String, Void, User> {
                 user.setNbComment(jObj.getInt("comments"));
                 user.setNbNotes(jObj.getInt("rates"));
                 user.setLastConnection(jObj.getString("last_connection"));
+                user.setExpireAt(jObj.getLong("expiredAt"));
 
 
 

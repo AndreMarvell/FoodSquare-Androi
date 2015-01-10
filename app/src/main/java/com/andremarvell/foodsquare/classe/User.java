@@ -1,5 +1,7 @@
 package com.andremarvell.foodsquare.classe;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -83,7 +85,7 @@ public class User  implements Serializable {
     /**
      * Timestamp de la date d'expiration de session
      */
-    private int expireAt;
+    private long expireAt;
 
 
 
@@ -302,19 +304,21 @@ public class User  implements Serializable {
         return score+" point(s)";
     }
 
-    public int getExpireAt() {
+    public long getExpireAt() {
         return expireAt;
     }
 
-    public void setExpireAt(int expireAt) {
+    public void setExpireAt(long expireAt) {
         this.expireAt = expireAt;
     }
 
     public boolean sessionExpired(){
 
         Long tsLong = System.currentTimeMillis()/1000;
-        if(tsLong<expireAt)
+        if(tsLong<expireAt){
+            Log.d("Tentative de connexion","Session Expiré");
             return true;
+        }
         else
             return false;
     }

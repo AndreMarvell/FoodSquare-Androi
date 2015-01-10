@@ -125,8 +125,14 @@ public class FoodSquareApplication extends android.app.Application {
         USER = savedUser;
         if(savedUser==null)
             return false;
-        else
-            return true;
+        else{
+            if(savedUser.sessionExpired()){
+                USER = null;
+                return false;
+            }else
+                return true;
+        }
+
     }
 
     @Override
