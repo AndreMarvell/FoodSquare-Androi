@@ -250,16 +250,6 @@ public class User  implements Serializable {
             e.printStackTrace();
         }
         try {
-            json.put("facebookId", (facebookId!=null)?facebookId:"");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
-            json.put("pin",pin);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
             json.put("photo", photo);
         } catch (JSONException e) {
             e.printStackTrace();

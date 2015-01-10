@@ -40,6 +40,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -48,21 +50,17 @@ import java.util.List;
  */
 public class RestaurantService extends AsyncTask<String, Void, Restaurant> {
 
+    Context context;
+    ProgressDialog progressDialog;
     private String URL = "restaurants";
     private String TAG = "Webservice Restaurant";
 
-    Context context;
-
-
-
-    ProgressDialog progressDialog;
+    public RestaurantService(Context context){
+        this.context = context;
+    }
 
     protected Restaurant doInBackground(String... params) {
         return getRestaurant(params[0]);
-    }
-
-    public RestaurantService(Context context){
-        this.context = context;
     }
 
     @Override
@@ -168,6 +166,8 @@ public class RestaurantService extends AsyncTask<String, Void, Restaurant> {
                             new User(c.getJSONObject("commenter"))
                     ));
                 }
+                Collections.reverse(restaurant.getComments());
+
 
                 JSONArray photos = obj.getJSONObject("restaurant").getJSONArray("gallerie");
                 for (int i = 0; i < photos.length(); i++) {

@@ -29,30 +29,32 @@ public class GalerieGridAdapter extends BaseAdapter {
         this.items = items;
     }
 
-    public View getView(final int position, final View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View gridView;
+        ViewHolder holder = null;
 
         if (convertView == null) {
 
-            gridView = new View(context);
+            holder = new ViewHolder();
 
-            // get layout from mobile.xml
-            gridView = inflater.inflate(R.layout.gallerie_picture_item, null);
+            convertView = inflater.inflate(R.layout.gallerie_picture_item, null);
 
-            // set image based on selected text
-            ImageView imageView = (ImageView) gridView.findViewById(R.id.grid_item_image);
-            (new ImageLoader(context)).DisplayImage(items.get(position).getMiniature(),imageView);
+            holder.imageView = (ImageView) convertView.findViewById(R.id.grid_item_image);
+
+            convertView.setTag(holder);
 
 
         } else {
-            gridView = (View) convertView;
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        gridView.setOnClickListener(new View.OnClickListener() {
+
+        (new ImageLoader(context)).DisplayImage(items.get(position).getMiniature(),holder.imageView);
+
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -64,7 +66,7 @@ public class GalerieGridAdapter extends BaseAdapter {
             }
         });
 
-        return gridView;
+        return convertView;
     }
 
     @Override
@@ -80,6 +82,11 @@ public class GalerieGridAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    /*private view holder class*/
+    private class ViewHolder {
+        ImageView imageView;
     }
 
 

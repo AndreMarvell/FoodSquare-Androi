@@ -1,100 +1,120 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/scrollView"
     android:background="@color/fs_whitesmoke">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="50dp"
         android:paddingLeft="@dimen/activity_vertical_margin"
-        android:paddingRight="@dimen/activity_vertical_margin"
-        android:paddingBottom="400dp"
-        android:gravity="center_vertical">
+        android:paddingRight="@dimen/activity_vertical_margin">
 
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:src="@drawable/foodsquare_splash_word"
-            android:layout_gravity="center_horizontal|center_vertical"/>
+            android:src="@drawable/foodsquare_splash_word"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Configurez votre compte"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="et/ou"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:text="Mettez à jour vos données"
+            android:textColor="#000"/>
 
 
         <com.andremarvell.foodsquare.assets.view.ClearableEditText
             android:id="@+id/nomInscription"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="Votre nom"
             android:layout_marginBottom="10dp"
-            android:inputType="text"
             android:background="@android:drawable/editbox_background_normal"
+            android:hint="Votre nom"
+            android:inputType="text"
             android:textSize="@dimen/form_page_input_text_size"
             android:windowSoftInputMode="stateHidden"/>
         <com.andremarvell.foodsquare.assets.view.ClearableEditText
             android:id="@+id/prenomInscription"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="Votre prénom"
             android:layout_marginBottom="10dp"
-            android:inputType="textEmailAddress"
             android:background="@android:drawable/editbox_background_normal"
+            android:hint="Votre prénom"
+            android:inputType="textEmailAddress"
             android:textSize="@dimen/form_page_input_text_size"
             android:windowSoftInputMode="stateHidden"/>
         <com.andremarvell.foodsquare.assets.view.ClearableEditText
             android:id="@+id/emailInscription"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="Email"
             android:layout_marginBottom="10dp"
-            android:inputType="textEmailAddress"
             android:background="@android:drawable/editbox_background_normal"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:textSize="@dimen/form_page_input_text_size"
             android:windowSoftInputMode="stateHidden"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Veuillez choisir un avatar"
             android:gravity="center_horizontal"
+            android:text="Veuillez choisir un avatar"
             android:textColor="#000"/>
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal">
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
                 android:id="@+id/avatar1"
-                android:src="@drawable/avatar1"
-                android:layout_marginRight="5dp"/>
-            <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/avatar1"/>
+            <ImageView
                 android:id="@+id/avatar2"
-                android:src="@drawable/avatar2"
-                android:layout_marginRight="5dp" />
-            <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/avatar2" />
+            <ImageView
                 android:id="@+id/avatar3"
-                android:src="@drawable/avatar3"
-                android:layout_marginRight="5dp" />
-            <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/avatar3" />
+            <ImageView
                 android:id="@+id/avatar4"
-                android:src="@drawable/avatar4"
-                android:layout_marginRight="5dp" />
-            <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/avatar4" />
+            <ImageView
                 android:id="@+id/avatar5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/avatar5" />
         </LinearLayout>
 
@@ -102,12 +122,12 @@
             android:id="@+id/valider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valider"
-            android:padding="15dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
-            android:textColor="#fff"
             android:background="@color/fs_green"
-            android:layout_gravity="center_horizontal"/>
+            android:padding="15dp"
+            android:text="Valider"
+            android:textColor="#fff"/>
 
     </LinearLayout>
 </ScrollView>
