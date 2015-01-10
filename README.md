@@ -13,6 +13,9 @@ Voici une liste des principales fonctionnalités
 * Noter & Commenter un restaurant
 * Uploader une photo d’un restaurant
 
+## Présentation
+
+* [Google Présentation](https://docs.google.com/presentation/d/12rFdgN0MJj2qub8wANnTufOxT141CV3ejXnqRMVhoJg/edit?usp=sharing)
 
 ## License
 
