@@ -2,63 +2,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BaseMenu"
-    android:background="#fff">
+    android:background="#fff"
+    tools:context=".BaseMenu">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        android:background="@drawable/resto_back"
         android:layout_gravity="center|center_vertical|center_horizontal"
+        android:background="@drawable/resto_back"
         android:gravity="center_horizontal|center_vertical|center"
-        android:id="@+id/linearLayout">
+        android:orientation="vertical">
         <ImageView
             android:id="@+id/photo"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/resto_nophoto"
-            android:layout_margin="7dp"/>
+            android:layout_margin="7dp"
+            android:src="@drawable/resto_nophoto"/>
         <TextView
             android:id="@+id/nom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/menu_top_text"
-            android:textSize="20sp"
-            android:layout_marginTop="5dp"
+            android:background="#8f000000"
             android:gravity="center_horizontal"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:background="#8f000000"/>
+            android:textColor="@color/menu_top_text"
+            android:textSize="20sp"/>
 
 
 
     </LinearLayout>
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:layout_alignParentRight="true"
-        android:gravity="center_horizontal"
-        android:background="#b1ffffff">
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_shape"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:padding="7dp">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:id="@+id/rate_button"
-            android:src="@drawable/rate_button"
-            android:layout_marginBottom="5dp"/>
-        <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:src="@drawable/rate_button"/>
+        <ImageView
             android:id="@+id/comment_button"
-            android:src="@drawable/comment_button"
-            android:layout_marginBottom="5dp" />
-        <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:src="@drawable/comment_button"
+            android:visibility="gone"/>
+        <ImageView
             android:id="@+id/photo_button"
-            android:src="@drawable/photo_button" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/photo_button"
+            android:visibility="gone"/>
     </LinearLayout>
 
 <TabHost
@@ -67,10 +67,10 @@
     android:layout_height="fill_parent"
     android:layout_below="@+id/linearLayout">
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/fragmentLayout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
@@ -80,22 +80,22 @@
             android:showDividers="middle">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
                 android:tag="Infos"
                 android:text="À Propos"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
                 />
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
                 android:tag="Commentaires"
                 android:text="Avis"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
                 />
             <TextView
-                android:tag="Gallerie"
-                android:text="Galerie"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
+                android:tag="Gallerie"
+                android:text="Galerie"
                 />
 
         </TabWidget>
@@ -105,14 +105,15 @@
             android:layout_height="fill_parent">
             <include layout="@layout/restaurant_infos"/>
             <ListView
+                android:id="@+id/listViewCommentaire"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:background="#fff"
-                android:id="@+id/listViewCommentaire"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"/>
+                android:layout_alignParentTop="true"
+                android:background="#fff"/>
             <include layout="@layout/restaurant_gallerie"/>
+
         </FrameLayout>
     </LinearLayout>
 </TabHost>

@@ -1,5 +1,6 @@
 package com.andremarvell.foodsquare.webservices.user;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -39,22 +40,19 @@ import java.io.InputStreamReader;
  */
 public class Connexion extends AsyncTask<String, Void, User> {
 
+    Context context;
+    String email;
+    ProgressDialog progressDialog;
     private String URL = "users/connexions";
     private String TAG = "Webservice Connexion";
 
-    Context context;
-    String email;
-
-
-    ProgressDialog progressDialog;
+    public Connexion(Context context){
+        this.context = context;
+    }
 
     protected User doInBackground(String... params) {
         email = params[0];
         return connect(params[0], params[1]);
-    }
-
-    public Connexion(Context context){
-        this.context = context;
     }
 
     @Override
@@ -86,7 +84,7 @@ public class Connexion extends AsyncTask<String, Void, User> {
             dialog.show();
         }else{
 
-            FoodSquareApplication.USER = result;
+            FoodSquareApplication.setUSER(result, (Activity) context);
 
             if(result.getNom()==null || result.getPrenom()==null){
                 SherlockFragment fragment = new UpdateFragment();

@@ -1,6 +1,9 @@
 package com.andremarvell.foodsquare;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -104,12 +107,16 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
             sMenuLeft.toggle();
             return true;
         }else if (id == R.id.action_geolocalise) {
+
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .addToBackStack(null)
-                    .replace(R.id.container, RestaurantGeolocalise.newInstance())
-                    .commit();
-            return true;
+            if(!(fragmentManager.findFragmentById(R.id.container) instanceof RestaurantGeolocalise)){
+                fragmentManager.beginTransaction()
+                        .addToBackStack(null)
+                        .replace(R.id.container, RestaurantGeolocalise.newInstance())
+                        .commit();
+                return false;
+            }
+
         }else if (id == R.id.action_search) {
             autoComplete.setAdapter(adapter);
         }
@@ -180,12 +187,7 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
 
             ((ImageView) sMenuLeft.getMenu().findViewById(R.id.profil)).setImageResource(getAndroidAvatarDrawable(FoodSquareApplication.USER.getPhoto(), getPackageName()));
             ((TextView) sMenuLeft.getMenu().findViewById(R.id.nom)).setText(FoodSquareApplication.USER.getPrenom() + " " + FoodSquareApplication.USER.getNom());
-
-
-
         }
-
-
     }
 
     @Override
@@ -196,7 +198,6 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
         } catch (Exception e) {
             System.err.println("Exception Sur le titre du fragment "+title+": "+ e.getMessage());
         }
-
     }
 
     @Override
@@ -254,6 +255,18 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
     public void focusSearchview(){
         if(search!=null)
             search.setIconified(false);
+    }
+
+    public void disconnect(){
+        SharedPreferences sharedPref = getSharedPreferences("UserPersist",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.remove("user").commit();
+        FoodSquareApplication.USER = null;
+
+        Intent i = new Intent(this, SplashScreen.class);
+        i.putExtra("disconnect", true);
+        startActivity(i);
+        finish();
     }
 
 

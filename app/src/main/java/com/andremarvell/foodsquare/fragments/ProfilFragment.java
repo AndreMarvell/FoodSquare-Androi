@@ -31,6 +31,11 @@ public class ProfilFragment extends SherlockFragment implements SwipeRefreshLayo
     TextView lastConnect;
 
 
+    public ProfilFragment() {
+        // Required empty public constructor
+
+    }
+
     /**
      * Fragment gérant l'ecran d'accueil
      *
@@ -43,10 +48,6 @@ public class ProfilFragment extends SherlockFragment implements SwipeRefreshLayo
         args.putInt(ARG_REUNION_NUMBER, reunionNumber);*/
         fragment.setArguments(args);
         return fragment;
-    }
-    public ProfilFragment() {
-        // Required empty public constructor
-
     }
 
     @Override

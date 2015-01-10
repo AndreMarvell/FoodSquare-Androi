@@ -29,12 +29,11 @@ public class LoginFragment extends SherlockFragment {
 
     // Pour la connexion normale
 
+    private static final String TAG = "FBLoginFragment";
     EditText identifiant;
-    EditText password;
 
     // Connexion Facebook
-
-    private static final String TAG = "FBLoginFragment";
+    EditText password;
 
 
     public LoginFragment() {
@@ -51,7 +50,7 @@ public class LoginFragment extends SherlockFragment {
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_splash_screen, container, false);
+        View view = inflater.inflate(R.layout.activity_splash_login, container, false);
 
 
         // Connexion normale

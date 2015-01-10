@@ -80,6 +80,11 @@ public class User  implements Serializable {
      */
     private int nbNotes;
 
+    /**
+     * Timestamp de la date d'expiration de session
+     */
+    private int expireAt;
+
 
 
     public User() {
@@ -295,5 +300,22 @@ public class User  implements Serializable {
     public String getScore(){
         int score = nbComment*15 +nbNotes*10;
         return score+" point(s)";
+    }
+
+    public int getExpireAt() {
+        return expireAt;
+    }
+
+    public void setExpireAt(int expireAt) {
+        this.expireAt = expireAt;
+    }
+
+    public boolean sessionExpired(){
+
+        Long tsLong = System.currentTimeMillis()/1000;
+        if(tsLong<expireAt)
+            return true;
+        else
+            return false;
     }
 }

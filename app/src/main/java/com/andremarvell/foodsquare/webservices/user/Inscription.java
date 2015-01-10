@@ -1,5 +1,6 @@
 package com.andremarvell.foodsquare.webservices.user;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -38,22 +39,19 @@ import java.io.InputStreamReader;
  */
 public class Inscription extends AsyncTask<String, Void, User> {
 
+    Context context;
+    String email;
+    ProgressDialog progressDialog;
     private String URL = "users/inscriptions";
     private String TAG = "Webservice Inscription";
 
-    Context context;
-    String email;
-
-
-    ProgressDialog progressDialog;
+    public Inscription(Context context){
+        this.context = context;
+    }
 
     protected User doInBackground(String... params) {
         email = params[0];
         return signin(params[0], params[1]);
-    }
-
-    public Inscription(Context context){
-        this.context = context;
     }
 
     @Override
@@ -85,7 +83,7 @@ public class Inscription extends AsyncTask<String, Void, User> {
             dialog.show();
         }else{
 
-            FoodSquareApplication.USER = result;
+            FoodSquareApplication.setUSER(result, (Activity) context);
 
             Intent i = new Intent(context, UpdateFragment.class);
             SherlockFragment fragment = new UpdateFragment();

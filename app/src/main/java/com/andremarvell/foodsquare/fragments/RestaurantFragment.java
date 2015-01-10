@@ -50,17 +50,14 @@ import java.util.Date;
 
 public class RestaurantFragment extends SherlockFragment {
 
-    View _rootView;
-
-    ListView listViewCommentaire;
-
-
-    RestaurantCommentAdapter adapter;
+    static final int REQUEST_TAKE_PHOTO = 1;
     private static final String ARG_RESTO = "restaurant";
+
+    View _rootView;
+    ListView listViewCommentaire;
+    RestaurantCommentAdapter adapter;
     Restaurant restaurant;
-
     String[] typeName = {"À Propos","Avis", "Galerie"};
-
     TabHost tabHost;
 
     TextView nomResto;
@@ -70,14 +67,15 @@ public class RestaurantFragment extends SherlockFragment {
     TextView noteResto;
     TextView adresseResto;
 
+    ImageView close;
+    Dialog dialogComment, dialogRate;
+    String mCurrentPhotoPath;
     private int userRate = 0;
 
+    public RestaurantFragment() {
+        // Required empty public constructor
 
-
-    ImageView close;
-    Dialog dialogComment, dialogRate, dialogPicture;
-
-
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -91,10 +89,6 @@ public class RestaurantFragment extends SherlockFragment {
         args.putSerializable(ARG_RESTO, r);
         fragment.setArguments(args);
         return fragment;
-
-    }
-    public RestaurantFragment() {
-        // Required empty public constructor
 
     }
 
@@ -202,7 +196,7 @@ public class RestaurantFragment extends SherlockFragment {
 
 
             tabHost.setCurrentTab(0);
-            initialize(typeName[0]);
+            initialize("Infos");
 
             tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener(){
                 @Override
@@ -237,12 +231,19 @@ public class RestaurantFragment extends SherlockFragment {
 
     public void initialize(String tag){
         if(tag.equals("Infos")){
-
+            _rootView.findViewById(R.id.rate_button).setVisibility(View.VISIBLE);
+            _rootView.findViewById(R.id.comment_button).setVisibility(View.GONE);
+            _rootView.findViewById(R.id.photo_button).setVisibility(View.GONE);
         }
         else if(tag.equals("Commentaires")){
-
+            _rootView.findViewById(R.id.rate_button).setVisibility(View.GONE);
+            _rootView.findViewById(R.id.comment_button).setVisibility(View.VISIBLE);
+            _rootView.findViewById(R.id.photo_button).setVisibility(View.GONE);
         }
         else {
+            _rootView.findViewById(R.id.rate_button).setVisibility(View.GONE);
+            _rootView.findViewById(R.id.comment_button).setVisibility(View.GONE);
+            _rootView.findViewById(R.id.photo_button).setVisibility(View.VISIBLE);
         }
 
         setSelectedTabColor();
@@ -330,7 +331,6 @@ public class RestaurantFragment extends SherlockFragment {
         });
 
     }
-
 
     public void showRateDialog(){
         if(dialogRate==null){
@@ -502,11 +502,6 @@ public class RestaurantFragment extends SherlockFragment {
     private void sendPhoto(Bitmap bitmap) throws Exception {
         new PhotoUploader(getSherlockActivity(), restaurant.getId()).execute(bitmap);
     }
-
-    String mCurrentPhotoPath;
-
-    static final int REQUEST_TAKE_PHOTO = 1;
-    File photoFile = null;
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

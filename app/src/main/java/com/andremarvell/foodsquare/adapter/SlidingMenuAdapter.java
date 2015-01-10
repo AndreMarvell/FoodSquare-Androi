@@ -1,6 +1,8 @@
 package com.andremarvell.foodsquare.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -23,7 +25,6 @@ import com.andremarvell.foodsquare.webservices.user.Update;
  * Created by ikounga_marvel on 12/09/2014.
  */
 public class SlidingMenuAdapter extends BaseAdapter {
-    private Context context;
     private final Integer[] iconIds = {
             R.drawable.menu_search,
             R.drawable.menu_profil,
@@ -35,6 +36,7 @@ public class SlidingMenuAdapter extends BaseAdapter {
     private final String[] iconTitles = {
         "Rechercher un restaurant","Mon profil","Restaurants à proximité","Restaurants Favoris","Mon Compte","Se déconnecter"
     };
+    private Context context;
 
     public SlidingMenuAdapter(Context context) {
         this.context = context;
@@ -81,10 +83,29 @@ public class SlidingMenuAdapter extends BaseAdapter {
                     else
                         f = null;
 
-                    fragmentManager.beginTransaction()
-                            .addToBackStack(null)
-                            .replace(R.id.container, f)
-                            .commit();
+                    if(position==2 && (fragmentManager.findFragmentById(R.id.container) instanceof RestaurantGeolocalise)){
+                        ((BaseSlidingMenu)context).toggleSlidingMenu();
+                    }else if(position == 5){
+                        if(context instanceof BaseSlidingMenu){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setMessage("Êtes-vous sûre de vouloir vous déconnecter?")
+                                    .setNegativeButton("Non",null)
+                                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            ((BaseSlidingMenu)context).disconnect();
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
+                    }else{
+                        fragmentManager.beginTransaction()
+                                .addToBackStack(null)
+                                .replace(R.id.container, f)
+                                .commit();
+                    }
+
                 }else{
                     ((BaseSlidingMenu)context).focusSearchview();
                 }
@@ -94,11 +115,6 @@ public class SlidingMenuAdapter extends BaseAdapter {
         });
 
         return convertView;
-    }
-
-    private class ViewHolder {
-        TextView title;
-        ImageView icon;
     }
 
     @Override
@@ -114,6 +130,11 @@ public class SlidingMenuAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    private class ViewHolder {
+        TextView title;
+        ImageView icon;
     }
 
 

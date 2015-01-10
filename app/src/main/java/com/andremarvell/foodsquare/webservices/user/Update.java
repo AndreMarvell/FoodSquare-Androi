@@ -1,5 +1,6 @@
 package com.andremarvell.foodsquare.webservices.user;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -34,20 +35,17 @@ import java.io.InputStreamReader;
  */
 public class Update extends AsyncTask<String, Void, User> {
 
+    Context context;
+    ProgressDialog progressDialog;
     private String URL = "users/";
     private String TAG = "Webservice mis à jour user";
 
-    Context context;
-
-
-    ProgressDialog progressDialog;
+    public Update(Context context){
+        this.context = context;
+    }
 
     protected User doInBackground(String... params) {
         return update();
-    }
-
-    public Update(Context context){
-        this.context = context;
     }
 
     @Override
@@ -79,7 +77,7 @@ public class Update extends AsyncTask<String, Void, User> {
             dialog.show();
         }else{
 
-            FoodSquareApplication.USER = result;
+            FoodSquareApplication.setUSER(result, (Activity) context);
 
             Intent i = new Intent(context, BaseSlidingMenu.class);
             context.startActivity(i);
@@ -123,7 +121,12 @@ public class Update extends AsyncTask<String, Void, User> {
                         new InputStreamReader(inputStream));
                 String line = reader.readLine();
 
-                user = new User(new JSONObject(line));
+                JSONObject jObj = new JSONObject(line);
+
+                user = new User(jObj.getJSONObject("user"));
+                user.setNbComment(jObj.getInt("comments"));
+                user.setNbNotes(jObj.getInt("rates"));
+                user.setLastConnection(jObj.getString("last_connection"));
 
 
 

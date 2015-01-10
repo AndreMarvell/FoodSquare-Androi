@@ -45,11 +45,14 @@ public class RestaurantGeolocalise extends SherlockFragment {
     GeolocalisedRestaurantAdapter adapter;
 
     String[] typeName = {"Liste","Carte"};
-
+    TabHost tabHost;
     private Map<Marker, Restaurant> allMarkersMap;
 
-    TabHost tabHost;
 
+    public RestaurantGeolocalise() {
+        // Required empty public constructor
+
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -61,10 +64,6 @@ public class RestaurantGeolocalise extends SherlockFragment {
         RestaurantGeolocalise fragment = new RestaurantGeolocalise();
 
         return fragment;
-
-    }
-    public RestaurantGeolocalise() {
-        // Required empty public constructor
 
     }
 
@@ -237,8 +236,6 @@ public class RestaurantGeolocalise extends SherlockFragment {
                                         .commit();
                             }
                         });
-
-
                         // Returning the view containing InfoWindow contents
                         return v;
 
@@ -255,23 +252,17 @@ public class RestaurantGeolocalise extends SherlockFragment {
 
     }
 
-    private class ViewHolder {
-        TextView titre;
-        TextView note;
-        TextView localisation;
-        TextView distance;
-    }
-
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
 
-        SupportMapFragment f = ((SupportMapFragment) getChildFragmentManager()
+        /*SupportMapFragment f = ((SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.mapFragment));
-        if (f != null && getSherlockActivity() instanceof BaseSlidingMenu)
+        if (f != null && getSherlockActivity() instanceof BaseSlidingMenu){
             getSherlockActivity().getSupportFragmentManager().beginTransaction().remove(f).commit();
+            //getChildFragmentManager().beginTransaction().remove(f).commit();
+        }*/
+
     }
 
     @Override
@@ -294,6 +285,13 @@ public class RestaurantGeolocalise extends SherlockFragment {
         super.onResume();
         getSherlockActivity().setTitle("À proximité");
 
+    }
+
+    private class ViewHolder {
+        TextView titre;
+        TextView note;
+        TextView localisation;
+        TextView distance;
     }
 
 }
