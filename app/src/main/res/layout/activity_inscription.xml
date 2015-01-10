@@ -1,0 +1,125 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    android:background="@color/fs_whitesmoke">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:paddingBottom="400dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/foodsquare_splash"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Encore un effort"
+            android:gravity="center_horizontal"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="vous avez presque terminé"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="10dp"/>
+        <com.andremarvell.foodsquare.assets.view.ClearableEditText
+            android:id="@+id/nomInscription"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Votre nom"
+            android:layout_marginBottom="10dp"
+            android:inputType="text"
+            android:background="@android:drawable/editbox_background_normal"
+            android:textSize="@dimen/form_page_input_text_size"
+            android:windowSoftInputMode="stateHidden"/>
+        <com.andremarvell.foodsquare.assets.view.ClearableEditText
+            android:id="@+id/prenomInscription"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Votre prénom"
+            android:layout_marginBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:background="@android:drawable/editbox_background_normal"
+            android:textSize="@dimen/form_page_input_text_size"
+            android:windowSoftInputMode="stateHidden"/>
+        <com.andremarvell.foodsquare.assets.view.ClearableEditText
+            android:id="@+id/emailInscription"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Email"
+            android:layout_marginBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:background="@android:drawable/editbox_background_normal"
+            android:textSize="@dimen/form_page_input_text_size"
+            android:windowSoftInputMode="stateHidden"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Veuillez choisir un avatar"
+            android:gravity="center_horizontal"
+            android:textColor="#000"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/avatar1"
+                android:src="@drawable/avatar1"
+                android:layout_marginRight="5dp"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/avatar2"
+                android:src="@drawable/avatar2"
+                android:layout_marginRight="5dp" />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/avatar3"
+                android:src="@drawable/avatar3"
+                android:layout_marginRight="5dp" />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/avatar4"
+                android:src="@drawable/avatar4"
+                android:layout_marginRight="5dp" />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/avatar5"
+                android:src="@drawable/avatar5" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/valider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valider"
+            android:padding="15dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="#fff"
+            android:background="@color/fs_green"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</ScrollView>

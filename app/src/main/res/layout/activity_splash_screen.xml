@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    android:background="@color/fs_whitesmoke">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:paddingBottom="400dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/foodsquare_splash"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+
+
+        <com.andremarvell.foodsquare.assets.view.ClearableEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Email"
+            android:layout_marginBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:background="@android:drawable/editbox_background_normal"
+            android:textSize="@dimen/form_page_input_text_size"
+            android:windowSoftInputMode="stateHidden"/>
+        <com.andremarvell.foodsquare.assets.view.CustomPasswordEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:password="true"
+            android:hint="Mot de passe"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:textSize="@dimen/form_page_input_text_size"/>
+
+        <Button
+            android:id="@+id/connexion"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Se connecter"
+            android:padding="15dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="#fff"
+            android:background="@color/fs_green"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vous n'avez pas de compte ?"
+            android:textColor="#000"
+            android:layout_gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/inscription"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="S'inscrire"
+            android:padding="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="#fff"
+            android:background="@color/fs_red"/>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version 1.0 "
+            android:textColor="#ff545454"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="©Copyright - FoodSquare"
+            android:textColor="#ff545454"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="fr.zoneturf.mobility.Programme" >
+    <item android:id="@+id/action_search"
+        android:title="@string/app_name"
+        android:icon="@drawable/menu_search"
+        android:showAsAction="always"
+        android:actionViewClass="com.actionbarsherlock.widget.SearchView"/>
+    <item android:id="@+id/action_geolocalise"
+        android:title="@string/app_name"
+        android:icon="@drawable/menu_proxy"
+        android:showAsAction="always"/>
+</menu>

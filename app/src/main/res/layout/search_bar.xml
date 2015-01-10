@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:gravity="center_vertical|center_horizontal">
+    <LinearLayout
+        android:id="@+id/autocompletionBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/edittext_shape"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:gravity="center_horizontal|center_vertical">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_action_search"
+            android:layout_gravity="center_vertical"/>
+        <com.andremarvell.foodsquare.assets.view.ClearableEditText
+            android:id="@+id/autocompletion"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:hint="Rechercher dans l'annuaire"
+            android:textSize="12sp"
+            android:textColorHint="#84070106"
+            android:textColor="#000"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:background="@color/transparent"
+            android:textCursorDrawable="@null"
+            android:cursorVisible="true"
+            android:dropDownWidth="match_parent"
+            android:gravity="center_vertical"
+            android:inputType="textNoSuggestions"/>
+    </LinearLayout>
+
+</LinearLayout>

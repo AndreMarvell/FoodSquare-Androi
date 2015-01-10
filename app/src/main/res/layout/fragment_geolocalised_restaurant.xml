@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BaseMenu"
+    android:background="@color/fs_whitesmoke">
+
+<TabHost
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="1dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/fragmentLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#000"
+            android:dividerPadding="0dp"
+            android:showDividers="middle">
+
+            <TextView
+                android:tag="Liste"
+                android:text="Liste"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                />
+            <TextView
+                android:tag="Cartes"
+                android:text="Carte"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                />
+
+        </TabWidget>
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+                <ListView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:background="#fff"
+                    android:id="@+id/listView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"/>
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/mapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment"/>
+        </FrameLayout>
+    </LinearLayout>
+</TabHost>
+
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fs_red">#ec5c54</color>
+    <color name="fs_green">#309b93</color>
+    <color name="fs_green2">#2b8b84</color>
+    <color name="programme_item_pressed">#ffdddddd</color>
+    <color name="menu_item_pressed">#FF2F2A23</color>
+    <color name="menu_top_back">#000</color>
+    <color name="menu_top_text">#fff</color>
+    <color name="transparent">#00000000</color>
+    <color name="fs_whitesmoke">#eaeaea</color>
+    <color name="tab_selected">#309b93</color>
+    <color name="tab_unselected">#eaeaea</color>
+    <color name="tab_text_selected">#eaeaea</color>
+    <color name="tab_text_unselected">#ff545454</color>
+
+</resources>

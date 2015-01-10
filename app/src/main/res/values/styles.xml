@@ -1,0 +1,76 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/ActionBar</item>
+        <item name="homeAsUpIndicator">@drawable/blank</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/blank</item>
+    </style>
+    <style name="ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="icon">@drawable/ic_drawer_1</item>
+        <item name="background">@color/fs_green</item>
+        <item name="android:icon">@drawable/ic_drawer_1</item>
+        <item name="android:background">@color/fs_green</item>
+    </style>
+    <style name="AppTheme2" parent="Theme.Sherlock.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/ActionBarNoSliding</item>
+        <item name="homeAsUpIndicator">@drawable/blank</item>
+        <item name="android:actionBarStyle">@style/ActionBarNoSliding</item>
+        <item name="android:homeAsUpIndicator">@drawable/blank</item>
+    </style>
+    <style name="ActionBarNoSliding" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="icon">@drawable/ic_action_refresh</item>
+        <item name="background">@color/fs_green</item>
+        <item name="android:icon">@drawable/ic_action_refresh</item>
+        <item name="android:background">@color/fs_green</item>
+    </style>
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="CustomAlertDialogStyle">
+
+        <item name="android:bottomBright">@color/transparent</item>
+        <item name="android:bottomDark">@color/transparent</item>
+        <item name="android:bottomMedium">@color/transparent</item>
+        <item name="android:centerBright">@color/transparent</item>
+        <item name="android:centerDark">@color/transparent</item>
+        <item name="android:centerMedium">@color/transparent</item>
+        <item name="android:fullBright">@color/transparent</item>
+        <item name="android:fullDark">@color/transparent</item>
+        <item name="android:topBright">@color/transparent</item>
+        <item name="android:topDark">@color/transparent</item>
+    </style>
+
+    <style name="PauseDialog" parent="@android:style/Theme.Light">
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+    </style>
+
+    <style name="InterstitialDialog" parent="@android:style/Theme.Light">
+    </style>
+
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="miniRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingstars</item>
+        <item name="android:minHeight">18dip</item>
+        <item name="android:maxHeight">18dip</item>
+    </style>
+    <style name="ratingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingstars</item>
+    </style>
+
+
+</resources>
