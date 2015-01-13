@@ -58,9 +58,6 @@ public class LoginFragment extends SherlockFragment {
         identifiant = (EditText) view.findViewById(R.id.email);
         password = (EditText) view.findViewById(R.id.password);
 
-        identifiant.setText("marvell.ikounga@gmail.com");
-        password.setText("jolianejtm");
-
         ((Button)view.findViewById(R.id.connexion)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
