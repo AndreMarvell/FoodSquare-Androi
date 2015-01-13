@@ -11,7 +11,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -48,10 +50,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class RestaurantFragment extends SherlockFragment {
+public class RestaurantFragment extends SherlockFragment implements SwipeRefreshLayout.OnRefreshListener{
 
     static final int REQUEST_TAKE_PHOTO = 1;
     private static final String ARG_RESTO = "restaurant";
+
+    SwipeRefreshLayout swipeLayout;
 
     View _rootView;
     ListView listViewCommentaire;
@@ -124,6 +128,9 @@ public class RestaurantFragment extends SherlockFragment {
             numCommentResto = (TextView) _rootView.findViewById(R.id.numCommentResto);
             userNoteResto = (TextView) _rootView.findViewById(R.id.userNoteResto);
             noteResto = (TextView) _rootView.findViewById(R.id.noteResto);
+
+            swipeLayout = (SwipeRefreshLayout) _rootView.findViewById(R.id.swipe_container);
+            swipeLayout.setOnRefreshListener(this);
 
 
 
@@ -560,4 +567,14 @@ public class RestaurantFragment extends SherlockFragment {
     }
 
 
+    @Override
+    public void onRefresh() {
+        new RestaurantService(getSherlockActivity()).execute(restaurant.getId());
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                swipeLayout.setRefreshing(false);
+
+            }
+        }, 1500);
+    }
 }
