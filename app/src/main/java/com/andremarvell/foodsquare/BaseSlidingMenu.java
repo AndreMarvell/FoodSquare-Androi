@@ -27,8 +27,10 @@ import com.andremarvell.foodsquare.fragments.RestaurantGeolocalise;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.lang.reflect.Field;
+import java.text.Normalizer;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Pattern;
 
 
 /**
@@ -267,6 +269,12 @@ public class BaseSlidingMenu extends SherlockFragmentActivity {
         i.putExtra("disconnect", true);
         startActivity(i);
         finish();
+    }
+
+    public String removeAccent(String str) {
+        String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(nfdNormalizedString).replaceAll("");
     }
 
 

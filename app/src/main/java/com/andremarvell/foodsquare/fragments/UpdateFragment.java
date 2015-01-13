@@ -35,6 +35,11 @@ public class UpdateFragment extends SherlockFragment implements SwipeRefreshLayo
     Button valider;
 
 
+    public UpdateFragment() {
+        // Required empty public constructor
+
+    }
+
     /**
      * Fragment gérant l'ecran d'inscription
      *
@@ -46,9 +51,15 @@ public class UpdateFragment extends SherlockFragment implements SwipeRefreshLayo
         fragment.setArguments(args);
         return fragment;
     }
-    public UpdateFragment() {
-        // Required empty public constructor
 
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch(NumberFormatException e) {
+            return false;
+        }
+        // only got here if we didn't return false
+        return true;
     }
 
     @Override
@@ -145,8 +156,6 @@ public class UpdateFragment extends SherlockFragment implements SwipeRefreshLayo
         return rootView;
     }
 
-
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -198,8 +207,8 @@ public class UpdateFragment extends SherlockFragment implements SwipeRefreshLayo
 
               ){
 
-                FoodSquareApplication.USER.setNom(nom.getText().toString());
-                FoodSquareApplication.USER.setPrenom(prenom.getText().toString());
+                FoodSquareApplication.USER.setNom(((BaseSlidingMenu)getSherlockActivity()).removeAccent(nom.getText().toString()));
+                FoodSquareApplication.USER.setPrenom(((BaseSlidingMenu)getSherlockActivity()).removeAccent(prenom.getText().toString()));
                 FoodSquareApplication.USER.setEmail(email.getText().toString());
                 FoodSquareApplication.USER.setPhoto(avatar);
 
@@ -213,16 +222,6 @@ public class UpdateFragment extends SherlockFragment implements SwipeRefreshLayo
                 dialog1.show();
             }
 
-    }
-
-    public static boolean isInteger(String s) {
-        try {
-            Integer.parseInt(s);
-        } catch(NumberFormatException e) {
-            return false;
-        }
-        // only got here if we didn't return false
-        return true;
     }
 
 

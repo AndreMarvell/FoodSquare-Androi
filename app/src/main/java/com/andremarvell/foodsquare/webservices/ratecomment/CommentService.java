@@ -30,24 +30,19 @@ import org.json.JSONObject;
  */
 public class CommentService extends AsyncTask<String, Void, Boolean> {
 
+    Context context;
+    ProgressDialog progressDialog;
     private String URL = "comments";
     private String TAG = "Webservice Commentaire Restaurant";
-
-    Context context;
-
     private String restaurantId;
-
-
-
-    ProgressDialog progressDialog;
-
-    protected Boolean doInBackground(String... params) {
-        return rateRestaurant(params[0]);
-    }
 
     public CommentService(Context context, String restaurantId){
         this.context = context;
         this.restaurantId = restaurantId;
+    }
+
+    protected Boolean doInBackground(String... params) {
+        return rateRestaurant(params[0]);
     }
 
     @Override
@@ -97,7 +92,7 @@ public class CommentService extends AsyncTask<String, Void, Boolean> {
         try {
 
             JSONObject jsonParams = new JSONObject();
-            jsonParams.put("comment", comment);
+            jsonParams.put("comment", ((BaseSlidingMenu)context).removeAccent(comment));
             jsonParams.put("thread", "restaurant"+restaurantId);
             jsonParams.put("commenter", FoodSquareApplication.USER.getId());
             jsonParams.put("token", FoodSquareApplication.USER.getToken());
