@@ -17,6 +17,10 @@ Voici une liste des principales fonctionnalités
 
 * [Google Présentation](https://docs.google.com/presentation/d/12rFdgN0MJj2qub8wANnTufOxT141CV3ejXnqRMVhoJg/edit?usp=sharing)
 
+## Webservice
+
+* [Foodsquare Webservice](https://github.com/Ghost4/FoodSquare-WS)
+
 ## Screenshots
 
 <img src="https://s-media-cache-ak0.pinimg.com/736x/4b/c9/ce/4bc9cee4ea99dc5060dd5cd4e8003ec9.jpg" height="400px" style="border : solid whitesmoke 4px">&nbsp;&nbsp;&nbsp;
